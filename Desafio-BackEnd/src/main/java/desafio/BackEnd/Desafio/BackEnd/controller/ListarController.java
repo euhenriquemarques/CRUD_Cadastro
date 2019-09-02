@@ -36,7 +36,7 @@ public class ListarController {
 	public String deletarCadastro(long id) {
 		Cadastro cadastro = cr.findById(id);
 		cr.delete(cadastro);
-		return "formulario/listar";
+		return "redirect:/listar";
 	}
 
 }
