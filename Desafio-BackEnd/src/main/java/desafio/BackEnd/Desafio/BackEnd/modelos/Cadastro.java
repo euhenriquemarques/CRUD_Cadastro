@@ -7,9 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.UniqueElements;
 
 
 @Entity
@@ -65,7 +62,6 @@ public class Cadastro implements Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
 	
 	
 }

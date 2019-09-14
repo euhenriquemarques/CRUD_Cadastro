@@ -31,22 +31,24 @@ public class EditarController {
 	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.POST)
-	public String salvarEdicao(@PathVariable("id") long id, @Valid Cadastro cadastro, @Valid String nome, @Valid String cpf, 
-			@Valid String email, @Valid String senha, BindingResult result, RedirectAttributes attributes) {
-		
-		
+	public String salvarEdicao(@PathVariable("id") long id, @Valid Cadastro cadastro, @Valid String nome, @Valid String cpf, @Valid String email, @Valid String senha, BindingResult result, RedirectAttributes attributes) {
+
+
 		if(result.hasErrors()) {
 			attributes.addFlashAttribute("mensagem", "Verifique os Campos");
 			return "redirect:/{id}";
 		}
-		cadastro = cr.findById(id);
-		cadastro.setCpf(cpf);
-		cadastro.setNome(nome);
-		cadastro.setEmail(email);
-		cadastro.setSenha(senha);
-		cr.save(cadastro);
-		attributes.addFlashAttribute("mensagem", "Adicionado com Sucesso");
-		return "redirect:/listar";
-		
+			cadastro = cr.findById(id);
+			cadastro.setCpf(cpf);
+			cadastro.setNome(nome);
+			cadastro.setEmail(email);
+			cadastro.setSenha(senha);
+			cr.save(cadastro);
+			attributes.addFlashAttribute("mensagem", "Adicionado com Sucesso");
+			return "redirect:/listar";
+			
+	
+
+
 	}
 }
